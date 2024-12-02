@@ -1,0 +1,178 @@
+<h1 id="total">Total</h1>
+<h2 id="markov-definition">Markov Definition</h2>
+<p><img src="image.png" alt="image.png"></p>
+<h3 id="markov-property">Markov Property</h3>
+<p><img src="image%201.png" alt="image.png"></p>
+<p><img src="image%202.png" alt="image.png"></p>
+<p><img src="image%203.png" alt="image.png"></p>
+<h3 id="why-discounting-is-a-good-idea">Why Discounting is a good idea</h3>
+<p><img src="image%204.png" alt="image.png"></p>
+<p><img src="image%205.png" alt="image.png"></p>
+<h3 id="bellman-equation">Bellman Equation</h3>
+<p><img src="image%206.png" alt="image.png"></p>
+<h3 id="direct-solution-of-bellman-equation">Direct solution of Bellman Equation</h3>
+<p><img src="image%207.png" alt="image.png"></p>
+<p><img src="image%208.png" alt="image.png"></p>
+<h3 id="solve-bellman-equation-directly">Solve bellman equation directly</h3>
+<p><img src="image%209.png" alt="image.png"></p>
+<h3 id="iterative-policy-evaluation">Iterative policy evaluation</h3>
+<p><img src="image%2010.png" alt="image.png"></p>
+<p><img src="image%2011.png" alt="image.png"></p>
+<p>Optimal Policy and optimal value and Q function</p>
+<p><img src="image%2012.png" alt="image.png"></p>
+<p><img src="image%2013.png" alt="image.png"></p>
+<h3 id="three-assumption-for-boe">Three Assumption for BOE</h3>
+<p><img src="image%2014.png" alt="image.png"></p>
+<h3 id="convergence-rule">Convergence Rule</h3>
+<p><img src="image%2015.png" alt="image.png"></p>
+<h2 id="dynamic-programming">Dynamic Programming</h2>
+<h3 id="two-assumption-of-dp">Two assumption of DP</h3>
+<ol>
+<li>MDP to be finite</li>
+<li>A perfect model for environment, means we know the trasition and reward function</li>
+</ol>
+<p><img src="image%2016.png" alt="image.png"></p>
+<p>For every states ⇒</p>
+<p><img src="image%2017.png" alt="image.png"></p>
+<p>In short, update value function using policy untill value function converge, then be greedy to update the policy, then go back to step 2 untill the policy converge.</p>
+<p><img src="image%2018.png" alt="image.png"></p>
+<p><img src="image%2019.png" alt="image.png"></p>
+<p>If value of all states are updated same time or individually</p>
+<p><img src="image%2020.png" alt="image.png"></p>
+<p><img src="image%2021.png" alt="image.png"></p>
+<h3 id="why-value-iteration-is-guranteed-to-converge">Why value iteration is guranteed to converge</h3>
+<p><img src="image%2022.png" alt="image.png"></p>
+<p><img src="image%2023.png" alt="image.png"></p>
+<h2 id="monte-carlo">Monte Carlo</h2>
+<p><img src="image%2024.png" alt="image.png"></p>
+<p><img src="image%2025.png" alt="image.png"></p>
+<h3 id="first-visit-mc-vs-evert-visit-mc">First Visit MC vs Evert Visit MC</h3>
+<h3 id="batch-vs-online-monte-carlo">Batch VS Online Monte-Carlo</h3>
+<p><img src="image%2026.png" alt="image.png"></p>
+<h3 id="no-need-to-store-samples-traces">No Need to store samples traces</h3>
+<p><img src="image%2027.png" alt="image.png"></p>
+<h2 id="temporal-difference-learning">Temporal Difference Learning</h2>
+<p><img src="image%2028.png" alt="image.png"></p>
+<h3 id="mc-update-the-value-using-the-actual-return-r-where-dp-use-the-estimated-return-to-update-the-value">MC update the value using the actual return R, where dp use the estimated return to update the value</h3>
+<p><img src="image%2029.png" alt="image.png"></p>
+<p><img src="image%2030.png" alt="image.png"></p>
+<p><img src="image%2031.png" alt="image.png"></p>
+<p><img src="image%2032.png" alt="image.png"></p>
+<p><img src="image%2033.png" alt="image.png"></p>
+<h3 id="what-is-markov-property">What is Markov Property</h3>
+<p><img src="image%2034.png" alt="image.png"></p>
+<p><img src="image%2035.png" alt="image.png"></p>
+<h2 id="mc-control">MC Control</h2>
+<h3 id="why-use-model-free-control">Why use model free control</h3>
+<p><img src="image%2036.png" alt="image.png"></p>
+<h3 id="on-policy-vs-off-policy">On-policy vs off-policy</h3>
+<p><img src="image%2037.png" alt="image.png"></p>
+<p><img src="image%2038.png" alt="image.png"></p>
+<h3 id="means-we-have-a-policy-that-gives-a-non-zero-probablity-to-all-possible-actions">Means we have a policy that gives a non-zero probablity to all possible actions</h3>
+<p><img src="image%2039.png" alt="image.png"></p>
+<h3 id="epsilon-greedy">Epsilon Greedy</h3>
+<p><img src="image%2040.png" alt="image.png"></p>
+<p><img src="image%2041.png" alt="image.png"></p>
+<p><img src="image%2042.png" alt="image.png"></p>
+<p><img src="image%2043.png" alt="image.png"></p>
+<p><img src="image%2044.png" alt="image.png"></p>
+<p><img src="image%2045.png" alt="image.png"></p>
+<h2 id="td-control">TD Control</h2>
+<h3 id="difference-between-online-and-offline-learning">Difference between online and offline learning</h3>
+<p><img src="image%2046.png" alt="image.png"></p>
+<p><img src="image%2047.png" alt="image.png"></p>
+<p><img src="image%2048.png" alt="image.png"></p>
+<p><img src="image%2049.png" alt="image.png"></p>
+<p><img src="image%2050.png" alt="image.png"></p>
+<p><img src="image%2051.png" alt="image.png"></p>
+<h3 id="target-policy-and-behaviour-policy">Target policy and behaviour policy</h3>
+<p>For on policy method, same policy is used to generate episode and to optimise. However, for off-policy method, the target policy are the one use to optimise and behaviour policy are the one used to generate episode.</p>
+<p><img src="image%2052.png" alt="image.png"></p>
+<p><img src="image%2053.png" alt="image.png"></p>
+<p><img src="image%2054.png" alt="image.png"></p>
+<h2 id="function-approximation">Function Approximation</h2>
+<p><img src="image%2055.png" alt="image.png"></p>
+<p><img src="image%2056.png" alt="image.png"></p>
+<p><img src="image%2057.png" alt="image.png"></p>
+<p><img src="image%2058.png" alt="image.png"></p>
+<p><img src="image%2059.png" alt="image.png"></p>
+<h3 id="the-estimates-make-the-estimates-closer-to-the-real-v-q-value-but-not-reach-the-real-v-q-value-in-the-end-it-will-get-close-enough-to-the-true-v-q-value-">The estimates make the estimates closer to the real V/Q value, but not reach the real V/Q value, in the end, it will get close enough to the true V/Q value.</h3>
+<p><img src="image%2060.png" alt="image.png"></p>
+<h2 id="dqn">DQN</h2>
+<p><img src="image%2061.png" alt="image.png"></p>
+<p><img src="image%2062.png" alt="image.png"></p>
+<p><img src="image%2063.png" alt="image.png"></p>
+<p><img src="image%2064.png" alt="image.png"></p>
+<p><img src="image%2065.png" alt="image.png"></p>
+<p><img src="image%2066.png" alt="image.png"></p>
+<p><img src="image%2067.png" alt="image.png"></p>
+<p><img src="image%2068.png" alt="image.png"></p>
+<p><img src="image%2069.png" alt="image.png"></p>
+<p><img src="image%2070.png" alt="image.png"></p>
+<h3 id="clipping-rewards-varation-in-rewards-maeks-the-training-unstable-clip-positive-reward-to-1-and-negative-reward-to-1">Clipping Rewards: Varation in rewards maeks the training unstable ⇒ Clip positive reward to 1, and negative reward to -1</h3>
+<p><img src="image%2071.png" alt="image.png"></p>
+<h3 id="skipping-frame-to-reducing-computational-cost-and-accelerating-training-times-">Skipping Frame to reducing computational cost and accelerating training times.</h3>
+<p><img src="image%2072.png" alt="image.png"></p>
+<h3 id="dobule-q-network">Dobule Q network</h3>
+<p>Normal netowork will produce a maximisation bias</p>
+<p><img src="image%2073.png" alt="image.png"></p>
+<p>Use the main netowrk instead of the target network to do action selection (compared with normal target network)</p>
+<p><img src="image%2074.png" alt="image.png"></p>
+<p><img src="image%2075.png" alt="image.png"></p>
+<p><img src="image%2076.png" alt="image.png"></p>
+<h3 id="double-q-network-provide-prediction-that-are-closer-to-the-final-value-and-more-stable-and-less-biased-">Double Q network provide prediction that are closer to the final value and more stable and less biased.</h3>
+<p><img src="image%2077.png" alt="image.png"></p>
+<h2 id="policy-gradient">Policy Gradient</h2>
+<h3 id="why-using-policy-based-method-">Why using policy based method:</h3>
+<p>For some environment that has large action space (especially continous action space), iterate through all actions might take a long time, thus have a policy that direct output action would be more efficient.</p>
+<p><img src="image%2078.png" alt="image.png"></p>
+<h3 id="objective">Objective</h3>
+<p><img src="image%2079.png" alt="image.png"></p>
+<h3 id="finit-difference-are-simple-inefficient-especially-when-have-tons-of-parameters-and-sometime-efficient-it-can-even-work-for-non-differentiable-ones-">Finit difference are simple, inefficient(especially when have tons of parameters), and sometime efficient (it can even work for non-differentiable ones)</h3>
+<p><img src="image%2080.png" alt="image.png"></p>
+<h3 id="directly-calculating-the-policy-gradient">Directly calculating the policy gradient</h3>
+<p><img src="image%2081.png" alt="image.png"></p>
+<h2 id="reinforce-algorithms">REINFORCE algorithms</h2>
+<p><img src="image%2082.png" alt="image.png"></p>
+<p><img src="image%2083.png" alt="image.png"></p>
+<p><img src="image%2084.png" alt="image.png"></p>
+<h3 id="reinforce-algorithms-suffer-greatly-from-variance-a-single-erratic-trajectory-can-cause-a-suboptimal-shift-into-wired-area-of-optimisation-">REINFORCE algorithms suffer greatly from variance, a single erratic trajectory can cause a suboptimal shift into wired area of optimisation.</h3>
+<p><img src="image%2085.png" alt="image.png"></p>
+<p><img src="image%2086.png" alt="image.png"></p>
+<p><img src="image%2087.png" alt="image.png"></p>
+<h3 id="the-action-in-future-cannot-affect-the-actions-in-the-past-">The action in future cannot affect the actions in the past.</h3>
+<p><img src="image%2088.png" alt="image.png"></p>
+<h2 id="actor-critics">Actor Critics</h2>
+<h3 id="policy-based-method-has-low-bias-but-larger-variance">Policy based method has low bias but larger variance</h3>
+<p><img src="image%2089.png" alt="image.png"></p>
+<p><img src="image%2090.png" alt="image.png"></p>
+<h3 id="td-error">TD Error</h3>
+<ul>
+<li>Generate the trace</li>
+<li>Update the policy value</li>
+<li>calcualte the TD error</li>
+<li>update the Q value error</li>
+</ul>
+<p><img src="image%2091.png" alt="image.png"></p>
+<p><img src="image%2092.png" alt="image.png"></p>
+<p><img src="image%2093.png" alt="image.png"></p>
+<h3 id="a3c-is-the-parallel-and-asynchronous-version-of-a2c-the-there-is-a-global-network-which-takes-the-gradient-of-each-agent-and-the-agent-will-sometimes-update-their-states-according-to-global-network-">A3C is the parallel and asynchronous version of A2C, the there is a global network which takes the gradient of each agent, and the agent will sometimes update their states according to global network.</h3>
+<p><img src="image%2094.png" alt="image.png"></p>
+<p><img src="image%2095.png" alt="image.png"></p>
+<p><img src="image%2096.png" alt="image.png"></p>
+<p><img src="image%2097.png" alt="image.png"></p>
+<p><img src="image%2098.png" alt="image.png"></p>
+<p><img src="image%2099.png" alt="image.png"></p>
+<p><img src="image%20100.png" alt="image.png"></p>
+<p><img src="image%20101.png" alt="image.png"></p>
+<p><img src="image%20102.png" alt="image.png"></p>
+<p><img src="image%20103.png" alt="image.png"></p>
+<p><img src="image%2095.png" alt="image.png"></p>
+<p><img src="image%2096.png" alt="image.png"></p>
+<p><img src="image%2097.png" alt="image.png"></p>
+<p><img src="image%2098.png" alt="image.png"></p>
+<p><img src="image%2099.png" alt="image.png"></p>
+<p><img src="image%20100.png" alt="image.png"></p>
+<p><img src="image%20101.png" alt="image.png"></p>
+<p><img src="image%20102.png" alt="image.png"></p>
+<p><img src="image%20103.png" alt="image.png"></p>

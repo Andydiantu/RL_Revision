@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>rl_definitions.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+
+<style>
+    body {
+        font-family: sans-serif;
+        font-size: 6px;
+        line-height: 1;
+        margin: 0px;
+        padding: 0px;
+        column-count: 5;
+        column-gap: 0px;
+    }
+    h1, h2, h3 {
+        font-size: 4px;
+        margin-bottom: 2px;
+    }
+    p {
+        margin: 3px 0;
+    }
+    img {
+        max-width: 90%;
+        height: auto;
+    }
+    ul, ol {
+        margin: 5px 0;
+        padding: 0 15px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 9px;
+    }
+    table th, table td {
+        padding: 2px 5px;
+        border: 1px solid #ccc;
+    }
+    .page {
+        page-break-after: avoid;
+    }
+</style>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="reinforcement-learning-key-definitions-and-formulae">Reinforcement Learning Key Definitions and Formulae</h1>
+<p><strong>Bayesian Decision Theory</strong>: maximizing Expected Utility
+<img src="figs/bayesian_decision_theory_expected_utility.png" alt="Bayesian Decision Theory"></p>
+<p><strong>Markov Reward Process</strong> (MRP)
+<img src="figs/markov_reward_process.png" alt="Markov Reward Process"></p>
+<p><strong>Return</strong>
+<img src="figs/return.png" alt="Return">
+<img src="figs/return_eg.png" alt="alt text"></p>
+<p><strong>State Value Function</strong>: expected return from state s at time t
+<img src="figs/state_value_function.png" alt="state value function">
+<img src="figs/_svf_1.png" alt="alt text"></p>
+<p><strong>Bellman Equation for MRPs</strong>: Expectation notation &amp; Sum notation &amp; Vector notation for state value function:
+<img src="figs/bellman_mrp.png" alt="Bellman Equation for MRP"></p>
+<p><strong>Direct Solution for Bellman Equation</strong>:
+<img src="figs/bellman_direct.png" alt="bellman direct solution"></p>
+<p><strong>Policy</strong>: a probability
+<img src="figs/policy.png" alt="policy"></p>
+<p><strong>Markov Decision Process (MDP)</strong>
+<img src="figs/markov_decision_process.png" alt="Markov Decision Process"></p>
+<p>Graphical Model for MDP:
+<img src="figs/mdp_graphical_model.png" alt="graphical model for MDP"></p>
+<p><strong>Value Function for MDP</strong>: how good is it to be in a given state s
+<img src="figs/mdp_value_function.png" alt="MDP Value Function"></p>
+<ul>
+<li>is also a self-consistent linear equation, like MRP
+<img src="figs/_mdp_valuef_1.png" alt="alt text"></li>
+</ul>
+<p><strong>Iterative Policy Evaluation Algorithm</strong>:
+<img src="figs/iterative_policy_evaluation.png" alt="Iterative Policy Evaluation Algorithm"></p>
+<p><strong>State-Action Value Function as Cost-To-Go</strong>: how good to be in a given state s and taken a given action a when following a policy $\pi$
+<img src="figs/state_action_valuefunc.png" alt="state-action value function"></p>
+<p><strong>Value Function Define a Partial Ordering over Policies</strong>:
+a better policy (&gt;= or equal to): greater than (&gt;= or equal to) <strong>expected return</strong> for all states</p>
+<p><strong>Optimal Value Function</strong>:
+<img src="figs/optimal_value_function.png" alt="Optimal Value Function"></p>
+<p><strong>Optimal Policy</strong>: maximizes the value function
+<img src="figs/optimal_policy.png" alt="Optimal Policy"></p>
+<p><strong>Optimal State-Action Value Function</strong>
+<img src="figs/optimal_state_action_valuefunc.png" alt="Optimal State-Action Value Function"></p>
+<p><strong>Bellman Optimality Equation for V($V^*$)</strong>: $V^{\pi*}$ is the optimal value function, and can be written without reference to actual optimal policy ($V^{\pi*} = V^*$)
+<img src="figs/boe_state_valuefunc.png" alt="Bellman Optimality Equation for State Value Function"></p>
+<p><strong>Bellman Optimality Equation for Q($Q^*$)</strong>
+<img src="figs/boe_state_action_valuefunc.png" alt="Bellman Optimality Equation for State-Action Value Function"></p>
+<ul>
+<li>BOE does not need optimal policy to compute optimal state value function</li>
+<li>finite MDP: BOE has a unique solution independent of policy</li>
+</ul>
+<p><strong>Bellman Optimality Equation Assumptions</strong></p>
+<ul>
+<li>accurately know the dynamics of environment</li>
+<li>have computational resources to find the solution</li>
+<li>Markov property</li>
+</ul>
+<p><strong>DP</strong>:</p>
+<ul>
+<li>Assumptions:
+<ul>
+<li>MDP to be finite</li>
+<li>perfect model of the environment. We know the transition and reward functions</li>
+</ul>
+</li>
+<li>Needs optimal substructure and overlapping sub-problems
+<img src="figs/dp_need.png" alt="DP_need"></li>
+</ul>
+<p><strong>Policy Improvement Theorem</strong>:
+<img src="figs/pol_imp.png" alt="policy improve"></p>
+<p><strong>Bellman's Principle of Optimality</strong>:
+<img src="figs/bpo.png" alt="Bellman's Principle of Optimality"></p>
+<p><strong>Policy Iteration Algorithm</strong>:
+<img src="figs/policy_iteration_alg.png" alt="Policy Iteration Algorithm"></p>
+<ul>
+<li>Generalized Policy Iteration Algorithm:
+<img src="figs/pol_ite_alg_gen.png" alt="Generalized Policy Iteration Algorithm"></li>
+</ul>
+<p><strong>Value Iteration</strong>:
+<img src="figs/value_iter.png" alt="Value Iteration"></p>
+<p><strong>Value Iteration Algorithm</strong>:
+<img src="figs/value_ite_alg.png" alt="Value Iteration Algorithm"></p>
+<p><strong>Synchronous vs Asynchronous Backups</strong>:
+<img src="figs/backups.png" alt="Synchronous vs Asynchronous">
+<img src="figs/backup_DP.png" alt="Backup"></p>
+<p><strong>DP Summary</strong>:
+<img src="figs/dp_sum.png" alt="DP Summary"></p>
+<p><strong>Model-Free Learning</strong>:
+<img src="figs/model_free_learning.png" alt="Model-Free Learning"></p>
+<p><strong>Monte Carlo Learning (MC)</strong>: Model-Free Reinforcement Learning
+<img src="figs/mc.png" alt="Monte Carlo Learning"></p>
+<p><strong>MC Policy Evaluation</strong>:
+<img src="figs/mc_policy_eval.png" alt="MC Policy Evaluation"></p>
+<p><strong>First-visit MC Policy Evaluation</strong>:
+<img src="figs/first_visit_mc_poleval.png" alt="MC Policy Evaluation"></p>
+<p><strong>Incremental Monte-Carlo Updates</strong>:
+<img src="figs/incre_mc_update.png" alt="Incremental Monte-Carlo Updates"></p>
+<p><strong>Bootstrapping &amp; Sampling</strong> (DP vs. MC):
+<img src="figs/dp_vs_mc.png" alt="Bootstrapping &amp; Sampling"></p>
+<ul>
+<li>TD performs bootstrapping from 1-step samples</li>
+</ul>
+<p><strong>Temporal-Difference (TD) Learning</strong>:
+<img src="figs/td_learning.png" alt="Temporal-Difference (TD) Learning"></p>
+<p><strong>Temporal Difference Learning Update Rule</strong>:
+<img src="figs/td_update.png" alt="Temporal Difference Learning Update Rule"></p>
+<ul>
+<li>TDerminology: (Temporal Difference Error vs Temporal Difference Target)
+<img src="figs/td_terms.png" alt="TD Terminology"></li>
+</ul>
+<p><strong>TD Value Function Estimation Algorithm</strong>:
+<img src="figs/td_value_func_esti_alg.png" alt="TD Value Function Estimation Algorithm"></p>
+<p><strong>TD Adv/Disadv</strong>:
+<img src="figs/td_advdisadv.png" alt="TD Adv/Disadv"></p>
+<p><strong>The Bias-Variance Tradeoff</strong>:
+<img src="figs/td_bias_variance.png" alt="The Bias-Variance Tradeoff">
+<img src="figs/bias_variance_mc_td.png" alt="MC/TD Bias-Variances"></p>
+<p><strong>DP-MC-TD Summary</strong>:
+<img src="figs/dp_mc_td_sum.png" alt="DP-MC-TD Summary"></p>
+<p><strong>Generalised Policy Iteration (GPI)</strong>:</p>
+<ul>
+<li>maintains both an approximate policy and an approximate value function, yet converges to an optimal policy
+<img src="figs/gpi_state_value_func.png" alt="GPI on State Value function"></li>
+</ul>
+<p><strong>On/Off-Policy Methods</strong>:</p>
+<ul>
+<li>on-policy methods: evaluate or improve the policy that is used to make decisions
+<ul>
+<li>learn on the job, learn about policy from experiences sampled from the policy</li>
+</ul>
+</li>
+<li>off-policy methods: evaluate or improve a policy different from that used to generate the data
+<ul>
+<li>look over someone's shoulder, learn about policy from experience sampled from other policy</li>
+</ul>
+</li>
+</ul>
+<p><strong>On-Policy Methods: Soft Control</strong>
+<img src="figs/on_policy_soft_control.png" alt="alt text"></p>
+<p><strong>e-greedy policies</strong>
+<img src="figs/e_greedy_policy.png" alt="alt text"></p>
+<p><strong>Greedy in the Limit with Infinite Exploration (GLIE)</strong>
+<img src="figs/glie.png" alt="alt text"></p>
+<p><strong>On-policy e-greedy first-visit MC control algorithm</strong>
+<img src="figs/on_policy_e_greedy_first_visit_mc_control.png" alt="alt text"></p>
+<p><strong>MC Batch Learning to Control</strong>
+<img src="figs/mc_batch_learning_control.png" alt="alt text"></p>
+<p><strong>MC Iterative Learning to Control</strong>
+<img src="figs/mc_iterative_learning_control.png" alt="alt text"></p>
+<p><strong>SARSA</strong>:
+<img src="figs/sarsa_alg.png" alt="alt text"></p>
+<p><strong>Convergence of SARSA</strong>:
+<img src="figs/sarsa_converge.png" alt="alt text"></p>
+<p><strong>Off-Policy Methods</strong>
+<img src="figs/td_off_policy.png" alt="alt text">
+<img src="figs/td_off_policy_q_learning.png" alt="alt text"></p>
+<p><strong>Q-Learning: Off-Policy TD Control</strong>
+<img src="figs/towards_q.png" alt="alt text">
+<img src="figs/q_learning.png" alt="alt text">
+<img src="figs/q_learning_alg.png" alt="alt text"></p>
+<p><strong>TD Control Summary</strong>:
+<img src="figs/td_sum1.png" alt="alt text">
+<img src="figs/td_sum2.png" alt="alt text"></p>
+<p><strong>Function Approximation</strong>:</p>
+<ul>
+<li>large MDP too many states to store in memory</li>
+<li>estimate value function with function approximation
+<ul>
+<li><em>Generalize</em> from seen states to unseen</li>
+<li><em>Update</em> function approximation parameter w of V or Q using MC/TD methods</li>
+<li>differentiable functions for approximation simplifies learning</li>
+</ul>
+</li>
+<li>we need a training method for non-stationary, non-identical-independent (iid) distributed data</li>
+</ul>
+<p><strong>Stochastic Gradient Descent</strong>:
+<img src="figs/sgd.png" alt="alt text"></p>
+<p><strong>Gradient Monte Carlo</strong>:
+<img src="figs/grad_mc.png" alt="alt text"></p>
+<p><strong>Feature Vector as States</strong>:
+<img src="figs/feature_vector_state.png" alt="alt text"></p>
+<ul>
+<li>Coarse Coding:</li>
+<li><img src="figs/coarse_state_encoding.png" alt="alt text"></li>
+<li>Tile Coding:</li>
+<li><img src="figs/tile_state_encoding.png" alt="alt text"></li>
+</ul>
+<p>Features (crafted not learned): <strong>Radial Basis Functions</strong>
+<img src="figs/rbf.png" alt="alt text">
+<img src="figs/rbf_2.png" alt="alt text"></p>
+<p>Representation Learning:
+<img src="figs/repr_learning.png" alt="alt text"></p>
+<p><strong>Linear Value Function Approximation</strong>:
+<img src="figs/linear_value_func_approx.png" alt="alt text">
+<img src="figs/value_func_as_linear_combined_features.png" alt="alt text">
+<img src="figs/update.png" alt="alt text"></p>
+<p><strong>MC with Value Function Approximation</strong>:
+<img src="figs/mc_vfa.png" alt="alt text"></p>
+<p><strong>TD with Value Function Approximation</strong>:
+<img src="figs/td_vfa.png" alt="alt text"></p>
+<p><strong>Function Approximation in GPI</strong>:
+<img src="figs/fa_gpi.png" alt="alt text"></p>
+<p>Deep Learning Basics: see Lecture 4.2</p>
+<p><strong>Advantages / Disadvantages of NNs:</strong>
+<img src="figs/_nn_adv_disadv.png" alt="alt text"></p>
+<p><strong>Representation Learning</strong>:</p>
+<ul>
+<li>Deep neural networks learn hierarchical feature representations</li>
+</ul>
+<p><strong>Deep Reinforcement Learning</strong>:
+<img src="figs/deep_rl.png" alt="alt text"></p>
+<p><strong>Deep Q-Learning</strong>:</p>
+<ul>
+<li>TD Q-learning update:</li>
+<li><img src="figs/_dqn_td_ql.png" alt="alt text"></li>
+<li><img src="figs/_td_error_as_learning_target.png" alt="alt text"></li>
+<li>gradient of E wrt w:</li>
+<li><img src="figs/_dqn_delta_w.png" alt="alt text"></li>
+</ul>
+<p><strong>Experience Replay</strong>:
+<img src="figs/exp_replay_4.png" alt="alt text">
+<img src="figs/dqn_exp_replay.png" alt="alt text"></p>
+<p><strong>Target Network</strong>:</p>
+<ul>
+<li>an update step also updates &quot;nearby&quot; states for NN -&gt; unstable, resonance</li>
+<li><img src="figs/target_network_2.png" alt="alt text"></li>
+</ul>
+<p>Clipping Rewards:</p>
+<ul>
+<li>set all positive rewards to +1 and negative to -1, removes rewards's different scale in different applications</li>
+</ul>
+<p>Skipping Frames:</p>
+<ul>
+<li>computer games framerate too high for human -&gt; e.g. use every 4 video frame (and frame stacking with past 4 selected frames as input) to form training data.</li>
+</ul>
+<p>Maximisation Bias:
+<img src="figs/maximisation_bias.png" alt="alt text"></p>
+<p><strong>Double Q Learning</strong>:
+<img src="figs/double_q_learning.png" alt="alt text">
+<img src="figs/double_q_learning_2.png" alt="alt text">
+<img src="figs/ddqn_over_dqn.png" alt="alt text"></p>
+<p>from value-based methods to policy-based methods</p>
+<ul>
+<li>find/approximate: optimal value function vs. optimal policy directly without Q/V</li>
+<li>value-based: sample efficient and more steady</li>
+<li>policy-based: faster convergence and better for continuous and stochastic environments</li>
+<li>examples: Q Learning, DQN, DDQN vs. Policy Gradients, REINFORCE, DDPG, Soft-Actor-Critic</li>
+</ul>
+<p>Probability to observe a trace:
+<img src="figs/prob_obs_trace.png" alt="alt text"></p>
+<p><strong>Optimal Policy via Optimal Parameters</strong>:
+<img src="figs/optimal_policy_from_params.png" alt="alt text">
+<img src="figs/optimal_policy_from_params_finite.png" alt="alt text"></p>
+<p>Policy Gradients:
+<img src="figs/policy_gradients.png" alt="alt text"></p>
+<p>Finite Difference Policy Gradient:</p>
+<ul>
+<li>notations:</li>
+<li><img src="figs/finite_diff_polgrad_notations.png" alt="alt text"></li>
+<li>the gradient:</li>
+<li><img src="figs/finite_diff_polgrad_gradient.png" alt="alt text">
+<ul>
+<li>depends on traces, and thus we'll get derivatives on actino selection and distribution of states</li>
+<li><img src="figs/polgrad_diff_1.png" alt="alt text"></li>
+<li><img src="figs/polgrad_diff-2.png" alt="alt text"></li>
+</ul>
+</li>
+<li>a naive approach:</li>
+<li><img src="figs/fdp_1.png" alt="alt text"></li>
+<li><img src="figs/fdp_2.png" alt="alt text"></li>
+<li><img src="figs/fdp_3.png" alt="alt text"></li>
+</ul>
+<p>Direct Policy Gradients:</p>
+<ul>
+<li>less empirical/numerical</li>
+<li><img src="figs/direct_polgrad_1.png" alt="alt text"></li>
+<li><img src="figs/direct_polgrad_2.png" alt="alt text"></li>
+<li><img src="figs/direct_polgrad_3.png" alt="alt text"></li>
+</ul>
+<p><strong>REINFORCE</strong>:
+<img src="figs/reinforce.png" alt="alt text">
+<img src="figs/reinforce_alg.png" alt="alt text"></p>
+<ul>
+<li>suffers from high variance in the sampled trajectories, thus stabilising model parameters is difficult
+<ul>
+<li>any erratic trajectory can cause a sub-optimal shift in the policy distribution</li>
+<li>solutions involve the introduction of a baseline or actor-critics</li>
+</ul>
+</li>
+<li>before reinforce: learning a value function can be intractable (more unstable, expensive for large state spaces, observability)</li>
+</ul>
+<p><strong>Reducing Variance: Causality</strong>:
+<img src="figs/causality.png" alt="alt text"></p>
+<p><strong>Gaussian Distribution</strong>:
+<img src="figs/gauss.png" alt="alt text"></p>
+<p><strong>Gaussian Policies</strong>:
+<img src="figs/gauss_policy.png" alt="alt text"></p>
+<p>PG is trial-and-error (like MC):
+<img src="figs/pg_trial_and_error.png" alt="alt text"></p>
+<p><strong>Actor-Critic Methods</strong>:</p>
+<ul>
+<li>Policy-based methods: actors
+<ul>
+<li>input: state, output: action</li>
+</ul>
+</li>
+<li>Value-based methods: critics
+<ul>
+<li>evaluates the action by computing the value function</li>
+</ul>
+</li>
+<li>TD As Critic:</li>
+<li><img src="figs/td_as_critic.png" alt="alt text"></li>
+<li><img src="figs/ac_picture.png" alt="lt text"></li>
+</ul>
+<p><strong>Naive Deep Q actor-critic</strong>:
+<img src="figs/q_driven_polgrad_ac_alg.png" alt="alt text"></p>
+<p>Reducing Variance: Baseline:</p>
+<ul>
+<li>subtracting a baseline from the return values can give smaller variability in sampled returns</li>
+</ul>
+<p><strong>Advantage Actor-Critic (A2C)</strong>:</p>
+<ul>
+<li>Advantage element:</li>
+<li><img src="figs/a2c_from_q.png" alt="alt text"></li>
+<li><img src="figs/a2c.png" alt="alt text"></li>
+<li>algorithm:</li>
+<li><img src="figs/a2c_alg.png" alt="alt text"></li>
+<li><img src="figs/a2c_comment.png" alt="alt text"></li>
+</ul>
+<p><strong>Asynchronous Advantage Actor-Critic (A3C)</strong>:</p>
+<ul>
+<li>Asynchronous element:</li>
+<li><img src="figs/async.png" alt="alt text"></li>
+<li><img src="figs/async_2.png" alt="alt text"></li>
+<li><img src="figs/async_3.png" alt="alt text"></li>
+</ul>
+<p><strong>Deep Deterministic Policy Gradients (DDPG)</strong>:</p>
+<ul>
+<li>deterministic policy, model-free, off-policy, actor-critic algorithm</li>
+<li><img src="figs/ddpg_intro.png" alt="alt text"></li>
+<li>notation:</li>
+<li><img src="figs/ddpg_notation.png" alt="alt text"></li>
+<li>algorithm:</li>
+<li><img src="figs/ddpg_alg.png" alt="alt text"></li>
+<li>few special elements to get DDPG to work well:</li>
+<li><img src="figs/ddpg_elements_123.png" alt="alt text"></li>
+<li><img src="figs/ddpg_elements_34.png" alt="alt text"></li>
+<li><img src="figs/ddpg_elements_4.png" alt="alt text"></li>
+</ul>
+<p>Control Variance of Learning (Modifying representation of return):
+<img src="figs/variance_control.png" alt="alt text"></p>
+<p>Desired Qualities for RL:
+<img src="figs/rl_desirables_1.png" alt="alt text">
+<img src="figs/rl_desirbles_2.png" alt="alt text"></p>
+<p><strong>Soft Actor-Critic (SAC)</strong>:
+<img src="figs/sac_1.png" alt="alt text">
+<img src="figs/sac_2.png" alt="alt text"></p>
+<p>Entropy:
+<img src="figs/entropy_1.png" alt="alt text">
+<img src="figs/entropy_2.png" alt="alt text"></p>
+<p><strong>SAC Objective Function</strong>:
+<img src="figs/sac_objective.png" alt="alt text"></p>
+<p>SAC Critic Update:
+<img src="figs/sac_critic.png" alt="alt text">
+<img src="figs/sac_eq_interpret.png" alt="alt text"></p>
+<p>SAC Actor Update:
+<img src="figs/sac_actor.png" alt="alt text"></p>
+
+</body>
+</html>
