@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>RL_notes</title>
+        <style>
+            /* General Styles */
+            body {
+                font-family: sans-serif;
+                font-size: 4.5px;
+                line-height: 1;
+                margin: 0px; /* Ensure no margin */
+                padding: 0px; /* Ensure no padding */
+                column-count: 5;
+                column-gap: 0px; /* No gap between columns */
+            }
+            
+            /* Reset margins and paddings for all elements */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box; /* Ensures padding and borders don't affect size */
+            }
+            
+            /* Style for images */
+            img {
+                max-width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 0;
+                display: block; /* Prevent inline spacing issues */
+            }
+            
+            /* Style for headings */
+            h1, h2, h3 {
+                font-size: 4px;
+                margin-bottom: 2px; /* Tight spacing for headings */
+            }
+            
+            /* Style for paragraphs */
+            p {
+                margin: 3px 0;
+            }
+            
+            /* Style for lists */
+            ul, ol {
+                margin: 5px 0;
+                padding: 0 15px;
+            }
+            
+            /* Style for tables */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: 3px;
+            }
+            
+            table th, table td {
+                padding: 1px 3px;
+                border: 1px solid #ccc;
+
+            }
+            
+            /* Page break styling */
+            .page {
+                page-break-after: avoid;
+            }
+            
+            /* Highlight block styles */
+            pre {
+                background-color: #f8f8f8;
+                border: 1px solid #cccccc;
+                border-radius: 3px;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                overflow-wrap: break-word;
+            }
+            
+            pre:not(.hljs) {
+                padding: 23px;
+                line-height: 19px;
+            }
+            
+            code {
+                font-size: 14px;
+                line-height: 19px;
+            }
+            
+            /* Highlight inline code */
+            :not(pre):not(.hljs) > code {
+                color: #C9AE75;
+                font-size: inherit;
+            }
+            
+            /* Mermaid JS for diagrams */
+            </style>
+
+
+    </head>
+    <body class="vscode-body vscode-light">
+        <p data-line="2" class="code-line" dir="auto">Markov Definition</p>
+<p data-line="4" class="code-line" dir="auto"><img src="image.png" alt="image.png" data-src="image.png"></p>
+<p data-line="6" class="code-line" dir="auto">Markov Property</p>
+<p data-line="8" class="code-line" dir="auto"><img src="image 1.png" alt="image.png" data-src="image%201.png"></p>
+<p data-line="10" class="code-line" dir="auto"><img src="image 2.png" alt="image.png" data-src="image%202.png"></p>
+<p data-line="12" class="code-line" dir="auto"><img src="image 3.png" alt="image.png" data-src="image%203.png"></p>
+<p data-line="14" class="code-line" dir="auto">Why Discounting is a good idea</p>
+<p data-line="16" class="code-line" dir="auto"><img src="image 4.png" alt="image.png" data-src="image%204.png"></p>
+<p data-line="18" class="code-line" dir="auto"><img src="image 5.png" alt="image.png" data-src="image%205.png"></p>
+<p data-line="20" class="code-line" dir="auto">Bellman Equation</p>
+<p data-line="22" class="code-line" dir="auto"><img src="image 6.png" alt="image.png" data-src="image%206.png"></p>
+<p data-line="24" class="code-line" dir="auto">Direct solution of Bellman Equation</p>
+<p data-line="26" class="code-line" dir="auto"><img src="image 7.png" alt="image.png" data-src="image%207.png"></p>
+<p data-line="28" class="code-line" dir="auto"><img src="image 8.png" alt="image.png" data-src="image%208.png"></p>
+<p data-line="30" class="code-line" dir="auto">Solve bellman equation directly</p>
+<p data-line="32" class="code-line" dir="auto"><img src="20241209234600.png" alt="image.png" data-src="20241209234600.png"></p>
+<p data-line="34" class="code-line" dir="auto">Iterative policy evaluation</p>
+<p data-line="36" class="code-line" dir="auto"><img src="20241209234746.png" alt="" data-src="20241209234746.png"></p>
+<p data-line="38" class="code-line" dir="auto"><img src="image 11.png" alt="image.png" data-src="image%2011.png"></p>
+<p data-line="40" class="code-line" dir="auto">Optimal Policy and optimal value and Q function</p>
+<p data-line="42" class="code-line" dir="auto"><img src="20241209234858.png" alt="" data-src="20241209234858.png"></p>
+<p data-line="44" class="code-line" dir="auto"><img src="20241209234933.png" alt="" data-src="20241209234933.png"></p>
+<p data-line="46" class="code-line" dir="auto">Three Assumption for BOE</p>
+<p data-line="48" class="code-line" dir="auto"><img src="image 14.png" alt="image.png" data-src="image%2014.png"></p>
+<p data-line="50" class="code-line" dir="auto">Convergence Rule</p>
+<p data-line="52" class="code-line" dir="auto"><img src="image 15.png" alt="image.png" data-src="image%2015.png"></p>
+<p data-line="54" class="code-line" dir="auto">Dynamic Programming</p>
+<p data-line="56" class="code-line" dir="auto">Two assumption of DP</p>
+<ol data-line="58" class="code-line" dir="auto">
+<li data-line="58" class="code-line" dir="auto">MDP to be finite</li>
+<li data-line="59" class="code-line" dir="auto">A perfect model for environment, means we know the trasition and reward function</li>
+</ol>
+<p data-line="61" class="code-line" dir="auto"><img src="image 16.png" alt="image.png" data-src="image%2016.png"></p>
+<p data-line="63" class="code-line" dir="auto">For every states ⇒</p>
+<p data-line="65" class="code-line" dir="auto"><img src="image 17.png" alt="image.png" data-src="image%2017.png"></p>
+<p data-line="67" class="code-line" dir="auto">In short, update value function using policy untill value function converge, then be greedy to update the policy, then go back to step 2 untill the policy converge.</p>
+<p data-line="69" class="code-line" dir="auto"><strong>Policy Iteration Algorithms</strong>
+<img src="20241209235040.png" alt="" data-src="20241209235040.png">
+<strong>Value Iteration Algorithms</strong>
+<img src="20241209235157.png" alt="" data-src="20241209235157.png"></p>
+<p data-line="74" class="code-line" dir="auto">If value of all states are updated same time or individually</p>
+<p data-line="76" class="code-line" dir="auto"><img src="image 20.png" alt="image.png" data-src="image%2020.png"></p>
+<p data-line="78" class="code-line" dir="auto"><img src="image 21.png" alt="image.png" data-src="image%2021.png"></p>
+<p data-line="80" class="code-line" dir="auto">Why value iteration is guranteed to converge</p>
+<p data-line="82" class="code-line" dir="auto"><img src="20241209235316.png" alt="" data-src="20241209235316.png">
+<img src="20241209235345.png" alt="" data-src="20241209235345.png"></p>
+<p data-line="85" class="code-line" dir="auto">Monte Carlo</p>
+<p data-line="87" class="code-line" dir="auto"><img src="image 24.png" alt="image.png" data-src="image%2024.png"></p>
+<p data-line="89" class="code-line" dir="auto"><img src="20241209235535.png" alt="" data-src="20241209235535.png">
+First Visit MC vs Evert Visit MC
+<img src="20241209235657.png" alt="" data-src="20241209235657.png">
+Batch VS Online Monte-Carlo</p>
+<p data-line="94" class="code-line" dir="auto"><img src="image 26.png" alt="image.png" data-src="image%2026.png"></p>
+<p data-line="96" class="code-line" dir="auto">No Need to store samples traces</p>
+<p data-line="98" class="code-line" dir="auto"><img src="image 27.png" alt="image.png" data-src="image%2027.png"></p>
+<p data-line="100" class="code-line" dir="auto">Temporal Difference Learning</p>
+<p data-line="102" class="code-line" dir="auto"><img src="image 28.png" alt="image.png" data-src="image%2028.png"></p>
+<p data-line="104" class="code-line" dir="auto">MC update the value using the actual return R, where dp use the estimated return to update the value</p>
+<p data-line="106" class="code-line" dir="auto"><img src="image 29.png" alt="image.png" data-src="image%2029.png"></p>
+<p data-line="108" class="code-line" dir="auto"><img src="image 30.png" alt="image.png" data-src="image%2030.png"></p>
+<p data-line="110" class="code-line" dir="auto"><img src="image 31.png" alt="image.png" data-src="image%2031.png"></p>
+<p data-line="112" class="code-line" dir="auto"><img src="image 32.png" alt="image.png" data-src="image%2032.png"></p>
+<p data-line="114" class="code-line" dir="auto"><img src="image 33.png" alt="image.png" data-src="image%2033.png"></p>
+<p data-line="116" class="code-line" dir="auto">What is Markov Property</p>
+<p data-line="118" class="code-line" dir="auto"><img src="image 34.png" alt="image.png" data-src="image%2034.png"></p>
+<p data-line="120" class="code-line" dir="auto"><img src="image 35.png" alt="image.png" data-src="image%2035.png"></p>
+<p data-line="122" class="code-line" dir="auto">MC Control</p>
+<p data-line="124" class="code-line" dir="auto">Why use model free control</p>
+<p data-line="126" class="code-line" dir="auto"><img src="image 36.png" alt="image.png" data-src="image%2036.png"></p>
+<p data-line="128" class="code-line" dir="auto">On-policy vs off-policy</p>
+<p data-line="130" class="code-line" dir="auto"><img src="image 37.png" alt="image.png" data-src="image%2037.png"></p>
+<p data-line="132" class="code-line" dir="auto"><img src="image 38.png" alt="image.png" data-src="image%2038.png"></p>
+<p data-line="134" class="code-line" dir="auto">Means we have a policy that gives a non-zero probablity to all possible actions</p>
+<p data-line="136" class="code-line" dir="auto"><img src="image 39.png" alt="image.png" data-src="image%2039.png"></p>
+<p data-line="138" class="code-line" dir="auto">Epsilon Greedy</p>
+<p data-line="140" class="code-line" dir="auto"><img src="image 40.png" alt="image.png" data-src="image%2040.png"></p>
+<p data-line="142" class="code-line" dir="auto"><img src="20241209235827.png" alt="" data-src="20241209235827.png">
+<img src="image 42.png" alt="image.png" data-src="image%2042.png"></p>
+<p data-line="145" class="code-line" dir="auto"><img src="image 43.png" alt="image.png" data-src="image%2043.png"></p>
+<p data-line="147" class="code-line" dir="auto"><img src="image 44.png" alt="image.png" data-src="image%2044.png"></p>
+<p data-line="149" class="code-line" dir="auto"><img src="image 45.png" alt="image.png" data-src="image%2045.png"></p>
+<p data-line="151" class="code-line" dir="auto">TD Control</p>
+<p data-line="153" class="code-line" dir="auto">Difference between online and offline learning</p>
+<table data-line="155" class="code-line" dir="auto">
+<thead data-line="155" class="code-line" dir="auto">
+<tr data-line="155" class="code-line" dir="auto">
+<th>Aspect</th>
+<th>Offline Learning</th>
+<th>Online Learning</th>
+</tr>
+</thead>
+<tbody data-line="157" class="code-line" dir="auto">
+<tr data-line="157" class="code-line" dir="auto">
+<td>Data</td>
+<td>Pre-collected dataset (fixed and static).</td>
+<td>Dynamically collected through interaction with the environment.</td>
+</tr>
+<tr data-line="158" class="code-line" dir="auto">
+<td>Interaction</td>
+<td>No interaction during training (training is offline).</td>
+<td>Continuous interaction and learning during training.</td>
+</tr>
+<tr data-line="159" class="code-line" dir="auto">
+<td>Updates</td>
+<td>Policy/value function is updated using the dataset once or iteratively (batch learning).</td>
+<td>Policy is updated incrementally after every interaction.</td>
+</tr>
+<tr data-line="160" class="code-line" dir="auto">
+<td>Adaptability</td>
+<td>Not adaptive to new environments unless retrained.</td>
+<td>Adaptive to changing environments in real-time.</td>
+</tr>
+<tr data-line="161" class="code-line" dir="auto">
+<td>Exploration</td>
+<td>Limited to what the dataset covers (no active exploration).</td>
+<td>Actively explores to discover new states and actions.</td>
+</tr>
+</tbody>
+</table>
+<p data-line="164" class="code-line" dir="auto"><img src="image 47.png" alt="image.png" data-src="image%2047.png"></p>
+<p data-line="166" class="code-line" dir="auto"><strong>SARSA</strong>
+<img src="20241210000101.png" alt="" data-src="20241210000101.png">
+<img src="image 49.png" alt="image.png" data-src="image%2049.png"></p>
+<p data-line="170" class="code-line" dir="auto"><img src="image 50.png" alt="image.png" data-src="image%2050.png"></p>
+<p data-line="173" class="code-line" dir="auto"><strong>Q-learning</strong>
+<img src="20241210000229.png" alt="" data-src="20241210000229.png">
+<img src="20241210000250.png" alt="" data-src="20241210000250.png">
+Target policy and behaviour policy</p>
+<p data-line="178" class="code-line" dir="auto">For on policy method, same policy is used to generate episode and to optimise. However, for off-policy method, the target policy are the one use to optimise and behaviour policy are the one used to generate episode.</p>
+<p data-line="180" class="code-line" dir="auto"><img src="image 52.png" alt="image.png" data-src="image%2052.png"></p>
+<p data-line="182" class="code-line" dir="auto"><img src="image 53.png" alt="image.png" data-src="image%2053.png"></p>
+<p data-line="184" class="code-line" dir="auto"><img src="image 54.png" alt="image.png" data-src="image%2054.png"></p>
+<p data-line="186" class="code-line" dir="auto">Function Approximation</p>
+<p data-line="188" class="code-line" dir="auto"><img src="image 55.png" alt="image.png" data-src="image%2055.png"></p>
+<p data-line="190" class="code-line" dir="auto"><img src="image 56.png" alt="image.png" data-src="image%2056.png"></p>
+<p data-line="192" class="code-line" dir="auto"><img src="image 57.png" alt="image.png" data-src="image%2057.png"></p>
+<p data-line="194" class="code-line" dir="auto"><img src="image 58.png" alt="image.png" data-src="image%2058.png"></p>
+<p data-line="196" class="code-line" dir="auto"><img src="image 59.png" alt="image.png" data-src="image%2059.png"></p>
+<p data-line="198" class="code-line" dir="auto">The estimates make the estimates closer to the real V/Q value, but not reach the real V/Q value, in the end, it will get close enough to the true V/Q value.</p>
+<p data-line="200" class="code-line" dir="auto"><img src="image 60.png" alt="image.png" data-src="image%2060.png"></p>
+<p data-line="202" class="code-line" dir="auto">DQN</p>
+<p data-line="204" class="code-line" dir="auto"><img src="image 61.png" alt="image.png" data-src="image%2061.png"></p>
+<p data-line="206" class="code-line" dir="auto"><img src="image 62.png" alt="image.png" data-src="image%2062.png"></p>
+<p data-line="208" class="code-line" dir="auto"><img src="image 63.png" alt="image.png" data-src="image%2063.png"></p>
+<p data-line="210" class="code-line" dir="auto"><img src="image 64.png" alt="image.png" data-src="image%2064.png"></p>
+<p data-line="212" class="code-line" dir="auto"><img src="image 65.png" alt="image.png" data-src="image%2065.png"></p>
+<p data-line="214" class="code-line" dir="auto"><img src="image 66.png" alt="image.png" data-src="image%2066.png"></p>
+<p data-line="216" class="code-line" dir="auto"><img src="image 67.png" alt="image.png" data-src="image%2067.png">
+<strong>Experience Reply Algorithmes</strong>
+<img src="20241210000346.png" alt="" data-src="20241210000346.png">
+<img src="image 69.png" alt="image.png" data-src="image%2069.png"></p>
+<p data-line="221" class="code-line" dir="auto"><img src="image 70.png" alt="image.png" data-src="image%2070.png"></p>
+<p data-line="223" class="code-line" dir="auto">Clipping Rewards: Varation in rewards maeks the training unstable ⇒ Clip positive reward to 1, and negative reward to -1</p>
+<p data-line="225" class="code-line" dir="auto"><img src="image 71.png" alt="image.png" data-src="image%2071.png"></p>
+<p data-line="227" class="code-line" dir="auto">Skipping Frame to reducing computational cost and accelerating training times.</p>
+<p data-line="229" class="code-line" dir="auto"><img src="image 72.png" alt="image.png" data-src="image%2072.png"></p>
+<p data-line="231" class="code-line" dir="auto">Dobule Q network</p>
+<p data-line="233" class="code-line" dir="auto">Normal netowork will produce a maximisation bias</p>
+<p data-line="235" class="code-line" dir="auto"><img src="image 73.png" alt="image.png" data-src="image%2073.png"></p>
+<p data-line="237" class="code-line" dir="auto">Use the main netowrk instead of the target network to do action selection (compared with normal target network)</p>
+<p data-line="239" class="code-line" dir="auto"><img src="image 74.png" alt="image.png" data-src="image%2074.png"></p>
+<p data-line="241" class="code-line" dir="auto"><img src="image 75.png" alt="image.png" data-src="image%2075.png"></p>
+<p data-line="243" class="code-line" dir="auto">Target Network
+<img src="20241210000524.png" alt="" data-src="20241210000524.png">
+Double Q network provide prediction that are closer to the final value and more stable and less biased.</p>
+<p data-line="247" class="code-line" dir="auto"><img src="image 77.png" alt="image.png" data-src="image%2077.png"></p>
+<p data-line="249" class="code-line" dir="auto">Policy Gradient</p>
+<p data-line="251" class="code-line" dir="auto">Why using policy based method:</p>
+<p data-line="253" class="code-line" dir="auto">For some environment that has large action space (especially continous action space), iterate through all actions might take a long time, thus have a policy that direct output action would be more efficient.</p>
+<p data-line="255" class="code-line" dir="auto"><img src="image 78.png" alt="image.png" data-src="image%2078.png"></p>
+<p data-line="257" class="code-line" dir="auto">Objective of Policy Gradient</p>
+<p data-line="259" class="code-line" dir="auto"><img src="20241210000632.png" alt="" data-src="20241210000632.png">
+Finit difference are simple, inefficient(especially when have tons of parameters), and sometime efficient (it can even work for non-differentiable ones)</p>
+<p data-line="262" class="code-line" dir="auto"><img src="image 80.png" alt="image.png" data-src="image%2080.png"></p>
+<p data-line="264" class="code-line" dir="auto">Directly calculating the policy gradient</p>
+<p data-line="266" class="code-line" dir="auto"><img src="20241210000758.png" alt="" data-src="20241210000758.png"></p>
+<p data-line="268" class="code-line" dir="auto">REINFORCE algorithms</p>
+<p data-line="270" class="code-line" dir="auto"><img src="image 82.png" alt="image.png" data-src="image%2082.png"></p>
+<p data-line="272" class="code-line" dir="auto"><img src="image 83.png" alt="image.png" data-src="image%2083.png"></p>
+<p data-line="274" class="code-line" dir="auto"><img src="image 84.png" alt="image.png" data-src="image%2084.png"></p>
+<p data-line="276" class="code-line" dir="auto">REINFORCE algorithms suffer greatly from variance, a single erratic trajectory can cause a suboptimal shift into wired area of optimisation.</p>
+<p data-line="278" class="code-line" dir="auto"><img src="image 85.png" alt="image.png" data-src="image%2085.png">
+Gussian Policy
+<img src="20241210001508.png" alt="" data-src="20241210001508.png">
+Policy gradients is trial-and-arror (like MC)
+<img src="20241210001535.png" alt="" data-src="20241210001535.png">
+The action in future cannot affect the actions in the past.</p>
+<p data-line="285" class="code-line" dir="auto"><img src="image 88.png" alt="image.png" data-src="image%2088.png"></p>
+<p data-line="287" class="code-line" dir="auto">Actor Critics</p>
+<p data-line="289" class="code-line" dir="auto">Policy based method has low bias but larger variance</p>
+<p data-line="291" class="code-line" dir="auto"><img src="image 89.png" alt="image.png" data-src="image%2089.png"></p>
+<p data-line="293" class="code-line" dir="auto"><img src="image 90.png" alt="image.png" data-src="image%2090.png"></p>
+<p data-line="295" class="code-line" dir="auto">TD Error</p>
+<ul data-line="297" class="code-line" dir="auto">
+<li data-line="297" class="code-line" dir="auto">Generate the trace</li>
+<li data-line="298" class="code-line" dir="auto">Update the policy value</li>
+<li data-line="299" class="code-line" dir="auto">calcualte the TD error</li>
+<li data-line="300" class="code-line" dir="auto">update the Q value error</li>
+</ul>
+<p data-line="302" class="code-line" dir="auto"><img src="20241210001936.png" alt="" data-src="20241210001936.png">
+Advantage Actor Critic (A2C)
+<img src="20241210002012.png" alt="" data-src="20241210002012.png">
+<img src="image 93.png" alt="image.png" data-src="image%2093.png"></p>
+<p data-line="307" class="code-line" dir="auto">A3C is the parallel and asynchronous version of A2C, the there is a global network which takes the gradient of each agent, and the agent will sometimes update their states according to global network.</p>
+<p data-line="309" class="code-line" dir="auto"><img src="image 94.png" alt="image.png" data-src="image%2094.png"></p>
+<p data-line="311" class="code-line" dir="auto"><img src="image 95.png" alt="image.png" data-src="image%2095.png"></p>
+<p data-line="313" class="code-line" dir="auto"><img src="image 96.png" alt="image.png" data-src="image%2096.png"></p>
+<p data-line="315" class="code-line" dir="auto"><img src="image 97.png" alt="image.png" data-src="image%2097.png"></p>
+<p data-line="317" class="code-line" dir="auto"><img src="image 98.png" alt="image.png" data-src="image%2098.png"></p>
+<p data-line="319" class="code-line" dir="auto"><img src="image 99.png" alt="image.png" data-src="image%2099.png"></p>
+<p data-line="321" class="code-line" dir="auto"><img src="image 100.png" alt="image.png" data-src="image%20100.png"></p>
+<p data-line="323" class="code-line" dir="auto"><img src="image 101.png" alt="image.png" data-src="image%20101.png"></p>
+<p data-line="325" class="code-line" dir="auto"><img src="image 102.png" alt="image.png" data-src="image%20102.png"></p>
+<p data-line="327" class="code-line" dir="auto"><img src="image 103.png" alt="image.png" data-src="image%20103.png"></p>
+
+        <script>var Be=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);var Me=Be((Lt,Ne)=>{var xe="Expected a function",Ae=NaN,Qe="[object Symbol]",Ze=/^\s+|\s+$/g,et=/^[-+]0x[0-9a-f]+$/i,tt=/^0b[01]+$/i,nt=/^0o[0-7]+$/i,rt=parseInt,it=typeof global=="object"&&global&&global.Object===Object&&global,at=typeof self=="object"&&self&&self.Object===Object&&self,ot=it||at||Function("return this")(),st=Object.prototype,lt=st.toString,ct=Math.max,ut=Math.min,ue=function(){return ot.Date.now()};function dt(e,t,n){var r,i,a,s,u,m,d=0,p=!1,b=!1,T=!0;if(typeof e!="function")throw new TypeError(xe);t=Le(t)||0,te(n)&&(p=!!n.leading,b="maxWait"in n,a=b?ct(Le(n.maxWait)||0,t):a,T="trailing"in n?!!n.trailing:T);function E(v){var A=r,_=i;return r=i=void 0,d=v,s=e.apply(_,A),s}function N(v){return d=v,u=setTimeout(L,t),p?E(v):s}function g(v){var A=v-m,_=v-d,h=t-A;return b?ut(h,a-_):h}function S(v){var A=v-m,_=v-d;return m===void 0||A>=t||A<0||b&&_>=a}function L(){var v=ue();if(S(v))return U(v);u=setTimeout(L,g(v))}function U(v){return u=void 0,T&&r?E(v):(r=i=void 0,s)}function R(){u!==void 0&&clearTimeout(u),d=0,r=m=i=u=void 0}function Y(){return u===void 0?s:U(ue())}function I(){var v=ue(),A=S(v);if(r=arguments,i=this,m=v,A){if(u===void 0)return N(m);if(b)return u=setTimeout(L,t),E(m)}return u===void 0&&(u=setTimeout(L,t)),s}return I.cancel=R,I.flush=Y,I}function ft(e,t,n){var r=!0,i=!0;if(typeof e!="function")throw new TypeError(xe);return te(n)&&(r="leading"in n?!!n.leading:r,i="trailing"in n?!!n.trailing:i),dt(e,t,{leading:r,maxWait:t,trailing:i})}function te(e){var t=typeof e;return!!e&&(t=="object"||t=="function")}function mt(e){return!!e&&typeof e=="object"}function gt(e){return typeof e=="symbol"||mt(e)&&lt.call(e)==Qe}function Le(e){if(typeof e=="number")return e;if(gt(e))return Ae;if(te(e)){var t=typeof e.valueOf=="function"?e.valueOf():e;e=te(t)?t+"":t}if(typeof e!="string")return e===0?e:+e;e=e.replace(Ze,"");var n=tt.test(e);return n||nt.test(e)?rt(e.slice(2),n?2:8):et.test(e)?Ae:+e}Ne.exports=ft});var pe="code-line",F=class{constructor(t,n,r){this.element=t;this.line=n;this.codeElement=r;this._detailParentElements=Array.from(Re(t,"DETAILS"))}get isVisible(){return!this._detailParentElements.some(t=>!t.open)}},ae=(()=>{let e,t=-1;return n=>{if(!e||n!==t){t=n,e=[new F(document.body,-1)];for(let r of document.getElementsByClassName(pe)){if(!(r instanceof HTMLElement))continue;let i=+r.getAttribute("data-line");isNaN(i)||(r.tagName==="CODE"&&r.parentElement&&r.parentElement.tagName==="PRE"?e.push(new F(r.parentElement,i,r)):r.tagName==="UL"||r.tagName==="OL"||e.push(new F(r,i)))}}return e}})();function oe(e,t){let n=Math.floor(e),r=ae(t),i=r[0]||null;for(let a of r){if(a.line===n)return{previous:a,next:void 0};if(a.line>n)return{previous:i,next:a};i=a}return{previous:i}}function He(e,t){let n=ae(t).filter(m=>m.isVisible),r=e-window.scrollY,i=-1,a=n.length-1;for(;i+1<a;){let m=Math.floor((i+a)/2),d=W(n[m]);d.top+d.height>=r?a=m:i=m}let s=n[a],u=W(s);return a>=1&&u.top>r?{previous:n[i],next:s}:a>1&&a<n.length&&u.top+u.height>r?{previous:s,next:n[a+1]}:{previous:s}}function W({element:e}){let t=e.getBoundingClientRect(),n=e.querySelector(`.${pe}`);if(n){let r=n.getBoundingClientRect(),i=Math.max(1,r.top-t.top);return{top:t.top,height:i}}return t}function K(e,t,n){if(!n.settings?.scrollPreviewWithEditor)return;if(e<=0){window.scroll(window.scrollX,0);return}let{previous:r,next:i}=oe(e,t);if(!r)return;let a=0,s=W(r),u=s.top;if(i&&i.line!==r.line){let m=(e-r.line)/(i.line-r.line),d=u+s.height,p=i.element.getBoundingClientRect().top-d;a=d+m*p}else{let m=e-Math.floor(e);a=u+s.height*m}a=Math.abs(a)<1?Math.sign(a):a,window.scroll(window.scrollX,Math.max(1,window.scrollY+a))}function se(e,t){let{previous:n,next:r}=He(e,t);if(n){if(n.line<0)return 0;let i=W(n),a=e-window.scrollY-i.top;if(r){let s=a/(W(r).top-i.top);return n.line+s*(r.line-n.line)}else{let s=a/i.height;return n.line+s}}return null}function ve(e,t){return ae(t).find(n=>n.element.id===e)}function*Re(e,t){for(let n=e.parentElement;n;n=n.parentElement)n.tagName===t&&(yield n)}var J=class{onDidChangeTextEditorSelection(t,n){let{previous:r}=oe(t,n);this._update(r&&(r.codeElement||r.element))}_update(t){this._unmarkActiveElement(this._current),this._markActiveElement(t),this._current=t}_unmarkActiveElement(t){t&&t.classList.toggle("code-active-line",!1)}_markActiveElement(t){t&&t.classList.toggle("code-active-line",!0)}};function he(e){document.readyState==="loading"||document.readyState==="uninitialized"?document.addEventListener("DOMContentLoaded",e):e()}var be=(e,t)=>({postMessage(n,r){e.postMessage({type:n,source:t.settings.source,...r})}});function le(e){let t=document.getElementById("vscode-markdown-preview-data");if(t){let n=t.getAttribute(e);if(n)return JSON.parse(n)}throw new Error(`Could not load data for ${e}`)}var Q=class{constructor(){this._settings=le("data-settings")}get settings(){return this._settings}updateSettings(t){this._settings=t}};var ye=11;function ke(e,t){var n=t.attributes,r,i,a,s,u;if(!(t.nodeType===ye||e.nodeType===ye)){for(var m=n.length-1;m>=0;m--)r=n[m],i=r.name,a=r.namespaceURI,s=r.value,a?(i=r.localName||i,u=e.getAttributeNS(a,i),u!==s&&(r.prefix==="xmlns"&&(i=r.name),e.setAttributeNS(a,i,s))):(u=e.getAttribute(i),u!==s&&e.setAttribute(i,s));for(var d=e.attributes,p=d.length-1;p>=0;p--)r=d[p],i=r.name,a=r.namespaceURI,a?(i=r.localName||i,t.hasAttributeNS(a,i)||e.removeAttributeNS(a,i)):t.hasAttribute(i)||e.removeAttribute(i)}}var Z,Ue="http://www.w3.org/1999/xhtml",w=typeof document>"u"?void 0:document,Fe=!!w&&"content"in w.createElement("template"),We=!!w&&w.createRange&&"createContextualFragment"in w.createRange();function Ve(e){var t=w.createElement("template");return t.innerHTML=e,t.content.childNodes[0]}function je(e){Z||(Z=w.createRange(),Z.selectNode(w.body));var t=Z.createContextualFragment(e);return t.childNodes[0]}function qe(e){var t=w.createElement("body");return t.innerHTML=e,t.childNodes[0]}function Xe(e){return e=e.trim(),Fe?Ve(e):We?je(e):qe(e)}function ee(e,t){var n=e.nodeName,r=t.nodeName,i,a;return n===r?!0:(i=n.charCodeAt(0),a=r.charCodeAt(0),i<=90&&a>=97?n===r.toUpperCase():a<=90&&i>=97?r===n.toUpperCase():!1)}function Ye(e,t){return!t||t===Ue?w.createElement(e):w.createElementNS(t,e)}function ze(e,t){for(var n=e.firstChild;n;){var r=n.nextSibling;t.appendChild(n),n=r}return t}function ce(e,t,n){e[n]!==t[n]&&(e[n]=t[n],e[n]?e.setAttribute(n,""):e.removeAttribute(n))}var Te={OPTION:function(e,t){var n=e.parentNode;if(n){var r=n.nodeName.toUpperCase();r==="OPTGROUP"&&(n=n.parentNode,r=n&&n.nodeName.toUpperCase()),r==="SELECT"&&!n.hasAttribute("multiple")&&(e.hasAttribute("selected")&&!t.selected&&(e.setAttribute("selected","selected"),e.removeAttribute("selected")),n.selectedIndex=-1)}ce(e,t,"selected")},INPUT:function(e,t){ce(e,t,"checked"),ce(e,t,"disabled"),e.value!==t.value&&(e.value=t.value),t.hasAttribute("value")||e.removeAttribute("value")},TEXTAREA:function(e,t){var n=t.value;e.value!==n&&(e.value=n);var r=e.firstChild;if(r){var i=r.nodeValue;if(i==n||!n&&i==e.placeholder)return;r.nodeValue=n}},SELECT:function(e,t){if(!t.hasAttribute("multiple")){for(var n=-1,r=0,i=e.firstChild,a,s;i;)if(s=i.nodeName&&i.nodeName.toUpperCase(),s==="OPTGROUP")a=i,i=a.firstChild;else{if(s==="OPTION"){if(i.hasAttribute("selected")){n=r;break}r++}i=i.nextSibling,!i&&a&&(i=a.nextSibling,a=null)}e.selectedIndex=n}}},V=1,Ge=11,we=3,Ee=8;function B(){}function $e(e){if(e)return e.getAttribute&&e.getAttribute("id")||e.id}function Ke(e){return function(n,r,i){if(i||(i={}),typeof r=="string")if(n.nodeName==="#document"||n.nodeName==="HTML"||n.nodeName==="BODY"){var a=r;r=w.createElement("html"),r.innerHTML=a}else r=Xe(r);var s=i.getNodeKey||$e,u=i.onBeforeNodeAdded||B,m=i.onNodeAdded||B,d=i.onBeforeElUpdated||B,p=i.onElUpdated||B,b=i.onBeforeNodeDiscarded||B,T=i.onNodeDiscarded||B,E=i.onBeforeElChildrenUpdated||B,N=i.childrenOnly===!0,g=Object.create(null),S=[];function L(c){S.push(c)}function U(c,l){if(c.nodeType===V)for(var o=c.firstChild;o;){var f=void 0;l&&(f=s(o))?L(f):(T(o),o.firstChild&&U(o,l)),o=o.nextSibling}}function R(c,l,o){b(c)!==!1&&(l&&l.removeChild(c),T(c),U(c,o))}function Y(c){if(c.nodeType===V||c.nodeType===Ge)for(var l=c.firstChild;l;){var o=s(l);o&&(g[o]=l),Y(l),l=l.nextSibling}}Y(n);function I(c){m(c);for(var l=c.firstChild;l;){var o=l.nextSibling,f=s(l);if(f){var x=g[f];x&&ee(l,x)?(l.parentNode.replaceChild(x,l),A(x,l)):I(l)}else I(l);l=o}}function v(c,l,o){for(;l;){var f=l.nextSibling;(o=s(l))?L(o):R(l,c,!0),l=f}}function A(c,l,o){var f=s(l);f&&delete g[f],!(!o&&(d(c,l)===!1||(e(c,l),p(c),E(c,l)===!1)))&&(c.nodeName!=="TEXTAREA"?_(c,l):Te.TEXTAREA(c,l))}function _(c,l){var o=l.firstChild,f=c.firstChild,x,P,k,G,O;e:for(;o;){for(G=o.nextSibling,x=s(o);f;){if(k=f.nextSibling,o.isSameNode&&o.isSameNode(f)){o=G,f=k;continue e}P=s(f);var $=f.nodeType,D=void 0;if($===o.nodeType&&($===V?(x?x!==P&&((O=g[x])?k===O?D=!1:(c.insertBefore(O,f),P?L(P):R(f,c,!0),f=O):D=!1):P&&(D=!1),D=D!==!1&&ee(f,o),D&&A(f,o)):($===we||$==Ee)&&(D=!0,f.nodeValue!==o.nodeValue&&(f.nodeValue=o.nodeValue))),D){o=G,f=k;continue e}P?L(P):R(f,c,!0),f=k}if(x&&(O=g[x])&&ee(O,o))c.appendChild(O),A(O,o);else{var ie=u(o);ie!==!1&&(ie&&(o=ie),o.actualize&&(o=o.actualize(c.ownerDocument||w)),c.appendChild(o),I(o))}o=G,f=k}v(c,f,P);var ge=Te[c.nodeName];ge&&ge(c,l)}var h=n,z=h.nodeType,me=r.nodeType;if(!N){if(z===V)me===V?ee(n,r)||(T(n),h=ze(n,Ye(r.nodeName,r.namespaceURI))):h=r;else if(z===we||z===Ee){if(me===z)return h.nodeValue!==r.nodeValue&&(h.nodeValue=r.nodeValue),h;h=r}}if(h===r)T(n);else{if(r.isSameNode&&r.isSameNode(h))return;if(A(h,r,N),S)for(var ne=0,_e=S.length;ne<_e;ne++){var re=g[S[ne]];re&&R(re,re.parentNode,!1)}}return!N&&h!==n&&n.parentNode&&(h.actualize&&(h=h.actualize(n.ownerDocument||w)),n.parentNode.replaceChild(h,n)),h}}var Je=Ke(ke),Se=Je;var Ce=Me(),H=0,Pe=new J,y=new Q,M=0,j=y.settings.source,q=acquireVsCodeApi(),de=q.getState()??{},C={...de,...le("data-state")};typeof de.scrollProgress<"u"&&de?.resource!==C.resource&&(C.scrollProgress=0);q.setState(C);var X=be(q,y);window.cspAlerter.setPoster(X);window.styleLoadingMonitor.setPoster(X);function fe(e){let t=document.getElementsByTagName("img");if(t.length>0){let n=Array.from(t,r=>r.complete?Promise.resolve():new Promise(i=>{r.addEventListener("load",()=>i()),r.addEventListener("error",()=>i())}));Promise.all(n).then(()=>setTimeout(e,0))}else setTimeout(e,0)}he(()=>{let e=C.scrollProgress;if(Oe(),typeof e=="number"&&!y.settings.fragment){fe(()=>{H+=1;let t=Math.max(1,e*document.body.clientHeight);window.scrollTo(0,t)});return}y.settings.scrollPreviewWithEditor&&fe(()=>{if(y.settings.fragment){let t;try{t=encodeURIComponent(y.settings.fragment)}catch{t=y.settings.fragment}C.fragment=void 0,q.setState(C);let n=ve(t,M);n&&(H+=1,K(n.line,M,y))}else isNaN(y.settings.line)||(H+=1,K(y.settings.line,M,y))}),typeof y.settings.selectedLine=="number"&&Pe.onDidChangeTextEditorSelection(y.settings.selectedLine,M)});var pt=(()=>{let e=Ce(t=>{H+=1,fe(()=>K(t,M,y))},50);return t=>{isNaN(t)||(C.line=t,e(t))}})();window.addEventListener("resize",()=>{H+=1,Ie()},!0);function Oe(){let e=document.getElementsByTagName("img"),t=0;for(let n of e)n.id="image-"+t,t+=1,n.setAttribute("data-vscode-context",JSON.stringify({webviewSection:"image",id:n.id,preventDefaultContextMenuItems:!0,resource:j}))}async function De(e,t=5){if(!document.hasFocus()&&t>0){setTimeout(()=>{De(e,t-1)},20);return}try{await navigator.clipboard.write([new ClipboardItem({"image/png":new Promise(n=>{let r=document.createElement("canvas");r!==null&&(r.width=e.naturalWidth,r.height=e.naturalHeight,r.getContext("2d")?.drawImage(e,0,0)),r.toBlob(i=>{i&&n(i),r.remove()},"image/png")})})])}catch(n){console.error(n)}}window.addEventListener("message",async e=>{let t=e.data;switch(t.type){case"copyImage":{let n=document.getElementById(t.id);n instanceof HTMLImageElement&&De(n);return}case"onDidChangeTextEditorSelection":t.source===j&&Pe.onDidChangeTextEditorSelection(t.line,M);return;case"updateView":t.source===j&&pt(t.line);return;case"updateContent":{let n=document.querySelector(".markdown-body"),i=new DOMParser().parseFromString(t.content,"text/html");for(let a of Array.from(i.querySelectorAll("meta")))a.hasAttribute("http-equiv")&&a.remove();if(t.source!==j)n.replaceWith(i.querySelector(".markdown-body")),j=t.source;else{let a=["open"],s=(d,p)=>{if(d.isEqualNode(p))return!0;if(d.tagName!==p.tagName||d.textContent!==p.textContent)return!1;let b=[...d.attributes].filter(g=>!a.includes(g.name)),T=[...p.attributes].filter(g=>!a.includes(g.name));if(b.length!==T.length)return!1;for(let g=0;g<b.length;++g){let S=b[g],L=T[g];if(S.name!==L.name||S.value!==L.value&&S.name!=="data-line")return!1}let E=Array.from(d.children),N=Array.from(p.children);return E.length===N.length&&E.every((g,S)=>s(g,N[S]))},u=i.querySelector(".markdown-body"),m=u.querySelectorAll("link");for(let d of m)d.remove();u.prepend(...m),Se(n,u,{childrenOnly:!0,onBeforeElUpdated:(d,p)=>{if(s(d,p)){let b=d.querySelectorAll("[data-line]"),T=p.querySelectorAll("[data-line]");b.length!==T.length&&console.log("unexpected line number change");for(let E=0;E<b.length;++E){let N=b[E],g=T[E];g&&N.setAttribute("data-line",g.getAttribute("data-line"))}return!1}return d.tagName==="DETAILS"&&p.tagName==="DETAILS"&&d.hasAttribute("open")&&p.setAttribute("open",""),!0}})}++M,window.dispatchEvent(new CustomEvent("vscode.markdown.updateContent")),Oe();break}}},!1);document.addEventListener("dblclick",e=>{if(!y.settings.doubleClickToSwitchToEditor)return;for(let r=e.target;r;r=r.parentNode)if(r.tagName==="A")return;let t=e.pageY,n=se(t,M);typeof n=="number"&&!isNaN(n)&&X.postMessage("didClick",{line:Math.floor(n)})});var vt=["http:","https:","mailto:","vscode:","vscode-insiders:"];document.addEventListener("click",e=>{if(!e)return;let t=e.target;for(;t;){if(t.tagName&&t.tagName==="A"&&t.href){if(t.getAttribute("href").startsWith("#"))return;let n=t.getAttribute("data-href");if(!n&&(n=t.getAttribute("href"),vt.some(r=>n.startsWith(r))))return;if(!/^[a-z\-]+:/i.test(n)){X.postMessage("openLink",{href:n}),e.preventDefault(),e.stopPropagation();return}return}t=t.parentNode}},!0);window.addEventListener("scroll",Ce(()=>{if(Ie(),H>0)H-=1;else{let e=se(window.scrollY,M);typeof e=="number"&&!isNaN(e)&&X.postMessage("revealLine",{line:e})}},50));function Ie(){C.scrollProgress=window.scrollY/document.body.clientHeight,q.setState(C)}
+</script>
+
+    </body>
+</html>
